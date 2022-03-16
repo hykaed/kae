@@ -14,16 +14,6 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
-    /*@GetMapping(value = "kae/project")
-    public List<Project> getProjects() {
-        return projectService.getProjects();
-    }*/
-
-    /*@PostMapping(value = "kae/project")
-    public void addNewProject(@RequestBody ProjectDto projectDto) {
-        projectService.addNewProject(projectDto);
-    }*/
-
     @GetMapping(value = "kae/project")
     public List<ProjectDto> getProjects() {
         return projectService.getProjects();
@@ -43,10 +33,4 @@ public class ProjectController {
     public void updateProject(@RequestBody ProjectDto projectDto) {
         projectService.updateProject(projectDto);
     }
-
-    /*@PostMapping(value = "kae/project")
-    public ResponseEntity<ProjectDto> getAllStudents(@RequestBody ProjectDto projectDto) {
-        ProjectDto prj = projectService.addNewProject(projectDto);
-        return new ResponseEntity<>(prj, HttpStatus.CREATED);
-    }*/
 }

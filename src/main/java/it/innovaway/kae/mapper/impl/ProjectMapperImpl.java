@@ -18,33 +18,6 @@ public class ProjectMapperImpl implements ProjectMapper {
         this.employeeMapper = employeeMapper;
     }
 
-
-   /* @Override
-    public Project projectDtoToProject(ProjectDto projectDto) {
-        if (projectDto == null) {
-            return null;
-        }
-        Project project = new Project();
-        project.setName(projectDto.getName());
-        project.setDescription(projectDto.getDescription());
-        project.setStartDate(projectDto.getStartDate());
-        project.setEndDate(projectDto.getEndDate());
-
-        Employee employee = new Employee();
-        employee.setEmployeeId(projectDto.getEmployeeId());
-        List<Employee> employees = new ArrayList<>();
-        employees.add(employee);
-
-        project.setEmployees(employees);*/
-
-
-//        Task task = new Task();
-//        task.setId(projectDto.getTaskId());
-//        List<Task> tasks = new ArrayList<>();
-//        tasks.add(task);
-//        project.setTasks(tasks);
-
-
     @Override
     public Project toEntity(ProjectDto projectDto) {
         if(projectDto == null) {

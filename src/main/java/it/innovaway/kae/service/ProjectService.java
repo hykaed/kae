@@ -15,6 +15,4 @@ public interface ProjectService {
     void updateProject(ProjectDto projectDto);
 
 
-    //tests
-    /*public ProjectDto addNewProject(ProjectDto courseDto);*/
 }

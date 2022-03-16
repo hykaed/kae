@@ -48,25 +48,6 @@ public class ProjectServiceImpl implements ProjectService {
             throw new IllegalStateException("Project name is taken");
         }
 
-       /* Project project1 = projectRepository.findById(projectDto.getProjectId())
-                .orElseThrow(()-> new IllegalStateException("error"));
-        Employee employee=employeeRepository.findById(projectDto.getEmployeeId())
-                        .orElseThrow(IllegalStateException::new);
-
-        Project project = projectMapper.projectDtoToProject(projectDto);
-        project1.setEmployees(project.getEmployees());
-
-
-        projectRepository.save(project1);*/
-
-        //tests
-
-        /*Project project = new Project();
-        mapDtoToModel(projectDto, project);
-
-        Project savedProject = projectRepository.save(project);
-        return  mapModelToDto(savedProject);*/
-
         Project entity = new Project();
         entity.setName(project.getName());
         entity.setDescription(project.getDescription());
@@ -107,37 +88,4 @@ public class ProjectServiceImpl implements ProjectService {
 
         projectRepository.save(entity);
     }
-
-
-    //tests
-
-    /*private void mapDtoToModel(ProjectDto projectDto, Project project) {
-        project.setName(projectDto.getName());
-        project.setDescription(projectDto.getDescription());
-        project.setStartDate(projectDto.getStartDate());
-        project.setEndDate(projectDto.getEndDate());
-        if (project.getEmployees() == null) {
-            project.setEmployees(new ArrayList<>());
-        }
-        projectDto.getEmployees().stream().forEach(employeeName -> {
-            Employee employee = employeeRepository.findByFirstName(employeeName);
-            if (employee == null) {
-                employee = new Employee();
-                employee.setProjects(new HashSet<>());
-            }
-            employee.setFirstName(employeeName);
-            employee.addProject(project);
-        });
-    }
-
-    private ProjectDto mapModelToDto(Project project) {
-        ProjectDto responseDto = new ProjectDto();
-        responseDto.setName(project.getName());
-        responseDto.setProjectId(project.getId());
-        responseDto.setDescription(project.getDescription());
-        responseDto.setStartDate(project.getStartDate());
-        responseDto.setStartDate(project.getEndDate());
-        responseDto.setEmployees(project.getEmployees().stream().map(Employee::getFirstName).collect(Collectors.toSet()));
-        return responseDto;
-    }*/
 }
