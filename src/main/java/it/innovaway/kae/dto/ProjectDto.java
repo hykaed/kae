@@ -11,7 +11,6 @@ public class ProjectDto {
     private LocalDate endDate;
     private Set<SimpleEmployeeDto> employees;
     private Set<Long> employeesId;
-//    private Long taskId;
 
     public Long getProjectId() {
         return projectId;
@@ -60,23 +59,6 @@ public class ProjectDto {
     public void setEmployees(Set<SimpleEmployeeDto> employees) {
         this.employees = employees;
     }
-
-       /*public Set<String> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(Set<String> employees) {
-        this.employees = employees;
-    }*/
-
-    //    public Long getTaskId() {
-//        return taskId;
-//    }
-//
-//    public void setTaskId(Long taskId) {
-//        this.taskId = taskId;
-//    }
-
 
     public Set<Long> getEmployeesId() {
         return employeesId;
