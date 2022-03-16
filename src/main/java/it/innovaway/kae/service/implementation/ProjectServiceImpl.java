@@ -55,10 +55,6 @@ public class ProjectServiceImpl implements ProjectService {
         entity.setEndDate(project.getEndDate());
         entity.setEmployees(new HashSet<>(employeeRepository.findAllById(project.getEmployeesId())));
 
-        //tests
-
-        //tests
-
         projectRepository.save(entity);
 
         return projectMapper.toDto(entity);
@@ -79,7 +75,6 @@ public class ProjectServiceImpl implements ProjectService {
         Project entity = projectRepository.findById(projectDto.getProjectId())
                 .orElseThrow(EntityNotFoundException::new);
 
-        //Project prj = projectMapper.toEntity(projectDto);
         entity.setName(projectDto.getName());
         entity.setDescription(projectDto.getDescription());
         entity.setStartDate(projectDto.getStartDate());
