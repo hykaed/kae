@@ -1,0 +1,149 @@
+<form [formGroup]="projectForm">
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Project Id</mat-label>
+      <input matInput formControlName="id" />
+      <mat-error *ngIf="projectForm.get('id')?.errors">
+          <span>'You must enter a value'</span>
+      </mat-error>
+    </mat-form-field> -->
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Project Name</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="projectForm.get('name')?.errors">
+        <span>'You must enter a value'</span>
+    </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Start Date</mat-label>
+      <input matInput formControlName="startDate" />
+      <mat-error *ngIf="projectForm.get('startDate')?.errors">
+        <span>'You must enter a value'</span>
+    </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>End Date </mat-label>
+      <input matInput formControlName="endDate" />
+      <mat-error *ngIf="projectForm.get('endDate')?.errors">
+        <span>'You must enter a value'</span>
+    </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Project Description</mat-label>
+      <textarea matInput formControlName="description" ></textarea>
+      <mat-error *ngIf="projectForm.get('description')?.errors">
+        <span>'You must enter a value'</span>
+    </mat-error>
+    </mat-form-field>
+  
+    <div formArrayName = "employees"
+    *ngFor="let employee of employees.controls; let i=index"
+    >
+    <div [formGroupName]="i" class="employee-group">
+      <h3>Add a new Employee</h3>
+     <!--  <mat-form-field appearance="fill">
+        <mat-label>Employee Id</mat-label>
+        <input matInput formControlName="employeeId" />
+        <mat-error *ngIf="projectForm.get('employeeId')?.errors">
+          <span>'You must enter a value'</span>
+      </mat-error>
+      </mat-form-field> -->
+ <!--      <mat-form-field appearance="fill">
+        <mat-label>Job Position</mat-label>
+        <input matInput formControlName="jobPosition" />
+        <mat-error *ngIf="projectForm.get('jobPosition')?.errors">
+          <span>'You must enter a value'</span>
+      </mat-error>
+      </mat-form-field> -->
+
+      <mat-form-field appearance="fill">
+        <mat-label attr.for="{{'nameId'+ i}}">Employee Name</mat-label>
+        <input matInput 
+        id="{{'nameId'+ i}}"
+        formControlName="name" >
+          <mat-error *ngIf="projectForm.get('name')?.errors">
+          <span>'You must enter a value'</span>
+      </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label attr.for="{{'lastNameId'+ i}}">Employee Last Name</mat-label>
+        <input id="{{'lastNameId'+ i}}" matInput formControlName="lastName" >
+        <mat-error *ngIf="projectForm.get('lastName')?.errors">
+          <span>'You must enter a value'</span>
+      </mat-error>
+      </mat-form-field>
+    <!--   <mat-form-field appearance="fill">
+        <mat-label>Employee Salary</mat-label>
+        <input matInput formControlName="salary" >
+        <mat-error *ngIf="projectForm.get('salary')?.errors">
+          <span>'You must enter a value'</span>
+      </mat-error>
+      </mat-form-field> -->
+    </div>
+    <button mat-stroked-button color="primary" 
+    [disabled]="!employees.valid"
+    (click)=" addEmployees()"
+    >Add another Employee</button>
+    
+  </div>
+  <br> 
+  <div formArrayName = "tasks"
+  *ngFor="let task of tasks.controls; let i=index"
+  >
+  <div [formGroupName]="i" class="employee-group">
+    <h3>Add a new Tasks</h3>
+
+    <mat-form-field appearance="fill">
+      <mat-label attr.for="{{'nameTaskId'+ i}}">Task Name</mat-label>
+      <input matInput 
+      id="{{'nameTaskId'+ i}}"
+      formControlName="name" >
+        <mat-error *ngIf="projectForm.get('name')?.errors">
+        <span>'You must enter a value'</span>
+    </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label attr.for="{{'descriptionTaskId'+ i}}">Task Description</mat-label>
+      <input id="{{'descriptionTaskId'+ i}}" matInput formControlName="description" >
+      <mat-error *ngIf="projectForm.get('description')?.errors">
+        <span>'You must enter a value'</span>
+    </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label attr.for="{{'startDateTaskId'+ i}}">Start Date</mat-label>
+      <input id="{{'startDateTaskId'+ i}}" matInput formControlName="startDate" >
+      <mat-error *ngIf="projectForm.get('startDate')?.errors">
+        <span>'You must enter a value'</span>
+    </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label attr.for="{{'endDateTaskId'+ i}}">End Date</mat-label>
+      <input id="{{'endDateTaskId'+ i}}" matInput formControlName="endDate" >
+      <mat-error *ngIf="projectForm.get('endDate')?.errors">
+        <span>'You must enter a value'</span>
+    </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label attr.for="{{'employeeTaskId'+ i}}">Employee</mat-label>
+      <input id="{{'employeeTaskId'+ i}}" matInput formControlName="employee" >
+      <mat-error *ngIf="projectForm.get('employee')?.errors">
+        <span>'You must enter a value'</span>
+    </mat-error>
+    </mat-form-field>
+  </div>
+  <button mat-stroked-button color="primary" 
+  [disabled]="!tasks.valid"
+  (click)=" addTasks()"
+  >Add another Employee</button>
+  
+</div>
+  
+<br> 
+    <button mat-raised-button color="primary"  
+    >Save</button>
+  </form>
+  

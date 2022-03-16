@@ -1,0 +1,39 @@
+
+<mat-sidenav-container class="app-sidenav-container mat-elevation-z8" >
+  <mat-sidenav #sidenav class="app-sidenav"
+  [opened]="!isScreenSmall"
+  [mode]="isScreenSmall? 'over': 'side' " 
+  >
+  <mat-toolbar color="primary">
+    <span>KAE</span>
+  </mat-toolbar>
+  <div class="list-wrapper">
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Search</mat-label>
+          <input matInput >
+        </mat-form-field>
+      </form>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <button mat-flat-button routerLink="dashboard">Home</button>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <button mat-flat-button routerLink="list-of-project">List of Project</button>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <button mat-flat-button routerLink="list-of-employee">List of Employee</button>
+    </mat-list-item>
+  </mat-list>
+</div>
+  </mat-sidenav>
+  <mat-sidenav-content class="app-sidenav-content">
+     <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+    <div class="wrapper">
+     <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

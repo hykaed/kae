@@ -1,0 +1,27 @@
+.example-card {
+    flex: 50%;
+    
+  }
+  
+.main{
+     display:flex;
+     flex-direction: row;
+     @media (max-width:600px) {
+        display: flex;
+        flex-direction: column;
+    } 
+ }
+ table {
+  width: 100%;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+/* .filter{
+  margin-left: 50px;
+} */
+.mat-elevation-z8{
+  //background-color: aquamarine;
+  padding: 20px;
+}
